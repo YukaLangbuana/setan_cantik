@@ -13,13 +13,25 @@
     src: url("../fonts/GothamRounded-Light.otf") format("opentype");
 }
 
-
-  html, body {
-    font-family: 'GothamRoundedMedium_21022', sans-serif;
-    overflow-x: hidden;
+html {
+    overflow: hidden;
+    height: 100%;
     padding-top: 75px; 
-    background-color:  #FC200E
-  }
+}
+
+body {
+    font-family: 'GothamRoundedMedium_21022', sans-serif;
+    height: 100%;
+    overflow: auto;
+    padding-top: 75px; 
+    background-color:  #FFBD00
+}
+
+body > div {
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
 
   h1, h2, h3, h4, h5 {
     font-size: 4em;
@@ -45,7 +57,7 @@
       display: block;
       position: fixed;
       width: 100%;
-      background-color: #FC200E;
+      background-color: #FFBD00;
       padding-top: 2%;
       padding-bottom: 2%;
       transition: all 0.4s ease-in-out;
