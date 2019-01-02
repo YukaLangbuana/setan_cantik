@@ -1,25 +1,23 @@
-@font-face
-{
-	font-family: 'Roboto';
-    src: url('../fonts/Roboto-Medium.ttf');
+@font-face {
+    font-family: GothamRoundedMedium_21022;
+    src: url("../fonts/GothamRoundedMedium_21022.ttf");
 }
 
-@font-face
-{
-	font-family: 'RobotoBold';
-    src: url('../fonts/Roboto-Bold.ttf');
+@font-face {
+    font-family: GothamRoundedBook;
+    src: url("../fonts/GothamRounded-Book.otf") format("opentype");
 }
 
-@font-face
-{
-	font-family: 'RobotoThin';
-    src: url('../fonts/Roboto-Thin.ttf');
+@font-face {
+    font-family: GothamRoundedLight;
+    src: url("../fonts/GothamRounded-Light.otf") format("opentype");
 }
 
 
   html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'GothamRoundedMedium_21022', sans-serif;
     overflow-x: hidden;
+    padding-top: 75px; 
   }
 
   h1, h2, h3, h4, h5 {
@@ -27,21 +25,37 @@
   }
 
   p {
-      font-size: 40px; 
+      font-size: 38px; 
+      letter-spacing: 0.001px;
+      line-height: 1.4em;
   }
 
+  .head a{
+      text-decoration: none;
+  }
+  
   .name p{
-    font-family: 'RobotoThin', sans-serif;
-    padding-top: 2%;
-    font-size: 30px; 
+    font-family: 'GothamRoundedMedium_21022', sans-serif;
+    font-size: 27px; 
     color: grey;
   }
 
   .head{
+      display: block;
+      position: fixed;
+      width: 100%;
       background-color: #FC200E;
       padding-top: 2%;
       padding-bottom: 2%;
+      transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out ;
   }
+
+  .head.sticky {
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
 
   .head h1{
       text-align: center;
@@ -53,6 +67,10 @@
       padding-bottom: 3%;
       border-top: 1px solid #B2B2B2;
       border-bottom: 1px solid #B2B2B2;
+  }
+
+  .content{
+      padding-right: 5%;
   }
 
   .box-btn {

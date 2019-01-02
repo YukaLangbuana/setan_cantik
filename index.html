@@ -11,12 +11,16 @@
 </head>
 
 <body>
-    <div class="head">
-        <h1><b>👻</b></h1><br>
-    </div>
-
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <header>
+            <div class="head">
+                <a href="#top"><h1><b>👻</b></h1><br></a>
+            </div>
+        </header>
+    </nav>
+    
     <form action="index.html">
-        <textarea autocomplete="off" id="textarea" class="form-control" rows="2" placeholder="Bagi cerita dong.." style="font-size: 40px"></textarea>
+        <textarea autocomplete="off" id="textarea" class="form-control" rows="2" placeholder="Cerita-cerita lah.." style="font-size: 40px"></textarea>
     </form> 
 
     <div id="feeds">
@@ -51,6 +55,21 @@
             }, 2000);
             
         }
+    });
+
+    $(window).scroll(function() {
+        var element = document.getElementsByClassName("head")
+        if ($(document).scrollTop() > 100){  
+            $(element).addClass("sticky");
+        }
+        else{
+            $(element).removeClass("sticky");
+        }
+    });
+
+    $("a[href='#top']").click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "fast");
+        return false;
     });
     </script>
     
