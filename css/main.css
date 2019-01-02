@@ -1,5 +1,19 @@
+@font-face
+{
+	font-family: 'HelveticaNeueRegular';
+	src: url('../fonts/HelveticaNeue.eot');
+	src: local('Helvetica Neue Bold'), local('HelveticaNeue'), url('../fonts/HelveticaNeue.woff') format('woff'), url('../fonts/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face
+{
+	font-family: 'HelveticaNeueCondensedBold';
+	src: url('../fonts/HelveticaNeue-CondensedBold.eot');
+	src: local('HelveticaNeue-CondensedBold'), local('HelveticaNeue-CondensedBold'), url('../fonts/HelveticaNeue-CondensedBold.woff') format('woff'), url('../fonts/HelveticaNeue-CondensedBold.ttf') format('truetype');
+}
+
   html, body {
-    font-family: 'Lato';
+    font-family: 'HelveticaNeueRegular';
     overflow-x: hidden;
   }
 
