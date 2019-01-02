@@ -1,19 +1,24 @@
 @font-face
 {
-	font-family: 'HelveticaNeueRegular';
-	src: url('../fonts/HelveticaNeue.eot');
-	src: local('Helvetica Neue Bold'), local('HelveticaNeue'), url('../fonts/HelveticaNeue.woff') format('woff'), url('../fonts/HelveticaNeue.ttf') format('truetype');
+	font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.ttf');
 }
 
 @font-face
 {
-	font-family: 'HelveticaNeueCondensedBold';
-	src: url('../fonts/HelveticaNeue-CondensedBold.eot');
-	src: local('HelveticaNeue-CondensedBold'), local('HelveticaNeue-CondensedBold'), url('../fonts/HelveticaNeue-CondensedBold.woff') format('woff'), url('../fonts/HelveticaNeue-CondensedBold.ttf') format('truetype');
+	font-family: 'RobotoBold';
+    src: url('../fonts/Roboto-Bold.ttf');
 }
 
+@font-face
+{
+	font-family: 'RobotoThin';
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+
   html, body {
-    font-family: 'HelveticaNeueRegular';
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
   }
 
@@ -26,6 +31,7 @@
   }
 
   .name p{
+      font-family: 'RobotoThin', sans-serif;
     padding-top: 2%;
     font-size: 30px; 
     color: grey;
@@ -39,6 +45,7 @@
   }
 
   .head h1{
+      text-align: center;
       color: white;
   }
 
