@@ -2,40 +2,39 @@ const form = document.querySelector('form')
 const API_URL = "http://kuntilanak.herokuapp.com/api/v1/setan/"
 const postElement = document.querySelector('.feeds')
 
-getAllContent()
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+function getJSON(url) {
+  var resp ;
+  var xmlHttp ;
 
-  const formData = new FormData(form);
-  const content = formData.get("content");
+  resp  = '' ;
+  xmlHttp = new XMLHttpRequest();
 
-  const json = {
-    content
-  };
+  if(xmlHttp != null)
+  {
+      xmlHttp.open( "GET", url, false );
+      xmlHttp.send( null );
+      resp = xmlHttp.responseText;
+  }
 
-  fetch(API_URL, {
-    method: 'POST',
-    body: JSON.stringify(json),
-    headers: {
-      'content-type': 'application/json'
-    }
-  });
-  setTimeout(function(){
-  }, 2000);
-  location.reload();
-});
+  return resp ;
+}
 
-function getAllContent() {
-  postElement.innerHTML = '';
-  fetch(API_URL)
-    .then(response => response.json())
-    .then(posts => {
-      posts.reverse();
-      posts.forEach(post => {
+var gjson = JSON.parse(getJSON(API_URL));
+var content =gjson.results
 
-        console.log(post.name);
-      })
-    })
-  console.log(postElement.innerHTML);
+for (i = content.length-1; i > 0; i--) { 
+  var html = `
+  <div class="body">
+        <div class="row">
+            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
+            <div class="col-sm-10">
+                <p>${content[i].content}</p>
+                <div class="name"><p>${content[i].name}</p></div>
+            </div>
+        </div>
+    </div>
+`;
+  document.getElementById("feeds").innerHTML += html
+  console.log(content[i].content)
 }

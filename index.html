@@ -19,47 +19,40 @@
         <textarea autocomplete="off" id="textarea" class="form-control" rows="2" placeholder="Bagi cerita dong.." style="font-size: 40px"></textarea>
     </form> 
 
-    <div class="body">
-        <div class="row">
-            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
-            <div class="col-sm-10">
-                <p>Awas ada setan!</p>
-                <div class="name"><p>Setan Utama 4m ago</p></div>
-            </div>
-        </div>
-    </div>
-    <div class="body">
-        <div class="row">
-            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
-            <div class="col-sm-10">
-                <p>Makan siang dulu</p>
-                <a href="#img1"><img src="https://asset.kompas.com/crop/0x0:1000x667/750x500/data/photo/2018/10/24/1835023710.jpg" class="thumbnail"></a>
-                <a href="#_" class="lightbox" id="img1"><img src="https://asset.kompas.com/crop/0x0:1000x667/750x500/data/photo/2018/10/24/1835023710.jpg"></a>
-                <div class="name"><p>Big Ostrich 10m ago</p></div>
-            </div>
-        </div>
-    </div>
-    <div class="body">
-        <div class="row">
-            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
-            <div class="col-sm-10">
-                <p>A boy told me he loved me last night and I just kept eating pizza.</p>
-                <div class="name"><p>The Mission 14m ago</p></div>
-            </div>
-        </div>
-    </div>
+    <div id="feeds">
 
+    </div>
 
     <script src="js/main.js"></script>
+    <script src="js/feed.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
+    
     $("#textarea").keypress(function (e) {
         if(e.which == 13 && !e.shiftKey) {        
-            $(this).closest("form").submit();
-            e.preventDefault();
-            return false;
+            const content = document.getElementById("textarea").value
+
+            const json = {
+                content
+            };
+
+            fetch("http://kuntilanak.herokuapp.com/api/v1/setan/", {
+                method: 'POST',
+                body: JSON.stringify(json),
+                headers: {
+                'content-type': 'application/json'
+                }
+            }).then(function(response){
+                if(response.ok){
+                    location.reload()
+                }
+            })
+            setTimeout(function(){
+            }, 2000);
+            
         }
     });
     </script>
+    
 
 </body>
