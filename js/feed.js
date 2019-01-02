@@ -1,5 +1,5 @@
 const form = document.querySelector('form')
-const API_URL = "http://kuntilanak.herokuapp.com/api/v1/setan/"
+const API_URL = "//kuntilanak.herokuapp.com/api/v1/setan/"
 const postElement = document.querySelector('.feeds')
 
 
