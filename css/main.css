@@ -27,15 +27,9 @@ body {
     background-color:  #FFBD00
 }
 
-body > div {
-    height: 100%;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-  h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5 {
     font-size: 4em;
-  }
+}
 
   p {
       font-size: 38px; 
