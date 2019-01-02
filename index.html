@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SETAN!</title>
+    <link rel="shortcut icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1061/1924/products/Ghost_Emoji_2_large.png?v=1542446803"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <h1><b>👻 Setan</b></h1><br>
+    </div><br>
+
+    <form action="index.html">
+        <textarea autocomplete="off" id="textarea" class="form-control" rows="2" placeholder="Bagi cerita dong.." style="font-size: 40px"></textarea>>
+    </form> 
+
+    <div class="body">
+        <div class="row">
+            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
+            <div class="col-sm-10">
+                <p><b>Awas ada setan!</b></p>
+                <div class="name"><p>Setan Utama 4m ago</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="row">
+            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
+            <div class="col-sm-10">
+                <p><b>Makan siang dulu</b></p>
+                <a href="#img1"><img src="https://asset.kompas.com/crop/0x0:1000x667/750x500/data/photo/2018/10/24/1835023710.jpg" class="thumbnail"></a>
+                <a href="#_" class="lightbox" id="img1"><img src="https://asset.kompas.com/crop/0x0:1000x667/750x500/data/photo/2018/10/24/1835023710.jpg"></a>
+                <div class="name"><p>Big Ostrich 10m ago</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="row">
+            <div class="col-sm-2"><button type="submit" class="box-btn"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></button></div>
+            <div class="col-sm-10">
+                <p><b>A boy told me he loved me last night and I just kept eating pizza.</b></p>
+                <div class="name"><p>The Mission 14m ago</p></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+    $("#textarea").keypress(function (e) {
+        if(e.which == 13 && !e.shiftKey) {        
+            $(this).closest("form").submit();
+            e.preventDefault();
+            return false;
+        }
+    });
+    </script>
+
+</body>
