@@ -68,6 +68,8 @@
     });
 
     $("a[href='#top']").click(function() {
+        var element = document.getElementsByClassName("head")
+        $(element).removeClass("sticky");
         $("html, body").animate({ scrollTop: 0 }, "fast");
         return false;
     });
