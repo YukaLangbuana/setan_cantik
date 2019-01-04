@@ -44,7 +44,7 @@
                 content
             };
 
-            fetch("http://kuntilanak.herokuapp.com/api/v1/setan/", {
+            fetch("https://kuntilanak.herokuapp.com/api/v1/setan/", {
                 method: 'POST',
                 body: JSON.stringify(json),
                 headers: {
@@ -80,7 +80,7 @@
     function upLike(clicked_id)
     {
         var like = parseInt(document.getElementById(clicked_id).innerHTML)+1;
-        var url_address = 'http://kuntilanak.herokuapp.com/api/v1/setan/'+clicked_id+"/";
+        var url_address = 'https://kuntilanak.herokuapp.com/api/v1/setan/'+clicked_id+"/";
         var json = {
             like
         }
@@ -97,7 +97,7 @@
 
     function fetchdata(){
         $.ajax({
-            url: 'http://kuntilanak.herokuapp.com/api/v1/setan/?page=last',
+            url: 'https://kuntilanak.herokuapp.com/api/v1/setan/?page=last',
             type: 'GET',
             success: function(data){
                 // Perform operation on return value
@@ -115,8 +115,8 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <p class="content">${content[i].content}</p>
-                                    <div class="col-sm-6 nopadding"><div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div></div>
-                                    <div class="col-sm-6"><div class="name"><div class="reply glyphicon glyphicon-share-alt"></div><a>${(content[i].comments).length}</a></div></div>
+                                    <div class="col-sm-4 nopadding"><div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div></div>
+                                    <div class="col-sm-8"><div class="name"><div class="reply glyphicon glyphicon-share-alt"></div><a>${(content[i].comments).length}</a></div></div>
                                 </div>
                             </div>
                         </div>
