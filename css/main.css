@@ -1,16 +1,18 @@
-@font-face {
-    font-family: GothamRoundedMedium_21022;
-    src: url("../fonts/GothamRoundedMedium_21022.ttf");
+html, body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    overflow-x: hidden;
+    padding-top: 75px; 
 }
 
-@font-face {
-    font-family: GothamRoundedBook;
-    src: url("../fonts/GothamRounded-Book.otf") format("opentype");
+h1, h2, h3, h4, h5 {
+    font-size: 4em;
 }
 
-@font-face {
-    font-family: GothamRoundedLight;
-    src: url("../fonts/GothamRounded-Light.otf") format("opentype");
+p {
+    font-size: 38px; 
+    letter-spacing: 0.001px;
+    line-height: 1.4em;
 }
 
 .container-full {
@@ -18,84 +20,86 @@
     width: 100%;
 }
 
-  html, body {
-    font-family: 'GothamRoundedMedium_21022', sans-serif;
-    overflow-x: hidden;
-    padding-top: 75px; 
-  }
+.likes{
+    text-align: center;
+    margin-right: -20px;
+    padding-top: 10px;
+}
 
-  h1, h2, h3, h4, h5 {
-    font-size: 4em;
-  }
+.number{
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: black;
+}
 
-  p {
-      font-size: 38px; 
-      letter-spacing: 0.001px;
-      line-height: 1.4em;
-  }
+.btn{
+    font-size: 150%;
+    background-color: #F4F4F4;
+}
 
-  .head a{
-      text-decoration: none;
-  }
-  
-  .name p{
-    font-family: 'GothamRoundedMedium_21022', sans-serif;
+.red{
+    color: red
+}
+
+.head a{
+    text-decoration: none;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
+
+.name {
+    display: inline;
+}
+
+.name p,
+.name a{
+    font-family: 'Nunito', sans-serif;
     font-size: 27px; 
     color: grey;
-  }
+}
 
-  .head{
-      display: block;
-      position: fixed;
-      width: 100%;
-      background-color: #FFBD00;
-      padding-top: 2%;
-      padding-bottom: 2%;
-      transition: all 0.4s ease-in-out;
-      -webkit-transition: all 0.4s ease-in-out;
-      -moz-transition: all 0.4s ease-in-out ;
-  }
+.reply {
+    font-size: 22px; 
+    color: grey;
+}
 
-  .head.sticky {
+.head{
+    display: block;
+    position: fixed;
+    width: 100%;
+    background-color: #FFBD00;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out ;
+}
+
+.head.sticky {
     padding-top: 0%;
     padding-bottom: 0%;
 }
 
-  .head h1{
-      text-align: center;
-      color: white;
+.head h1{
+    text-align: center;
+    color: white;
   }
 
-  .body{
-      background-color: white;
-      padding-top: 3%;
-      padding-bottom: 3%;
-      border-top: 1px solid #B2B2B2;
-      border-bottom: 1px solid #B2B2B2;
-  }
+.body{
+    background-color: white;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-top: 1px solid #B2B2B2;
+    border-bottom: 1px solid #B2B2B2;
+}
 
-  .content{
-      padding-right: 5%;
-  }
-
-  .box-btn {
-    padding-left: 40%;
-    padding-top: 15%;
-    align-content: center;
-    background: transparent;
-    font-size: 53px;
-    color: #B2B2B2;
-    font-weight: 300;
-    cursor: pointer;
-    border-radius: 2px;
-    line-height: 0.5;
-    border: none;
-    outline: none;
-  }
-
-  .glyphicon {
-    transition: color .3s linear;
-  }  
+.content{
+    padding-right: 5%;
+}
 
 .lightbox {
 	/** Default lightbox to hidden */

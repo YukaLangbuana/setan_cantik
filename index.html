@@ -5,7 +5,7 @@
     <link rel="shortcut icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1061/1924/products/Ghost_Emoji_2_large.png?v=1542446803"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
@@ -15,20 +15,23 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <header>
             <div class="head">
-                <a href="#top"><h1><b>👻</b></h1><br></a>
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4"><a href="#top"><h1><b>👻</b></h1><br></a></div>
+                    <div class="col-sm-4"></div>
+                </div>
             </div>
         </header>
     </nav>
     
-    <form action="index.html">
+    <form id="main-form">
         <textarea autocomplete="off" id="textarea" class="form-control" rows="2" placeholder="Cerita-cerita lah.." style="font-size: 40px"></textarea>
     </form> 
 
     <div id="feeds">
 
     </div>
-</div>
-    <script src="js/main.js"></script>
+    </div>
     <script src="js/feed.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
@@ -41,7 +44,7 @@
                 content
             };
 
-            fetch("https://kuntilanak.herokuapp.com/api/v1/setan/", {
+            fetch("http://127.0.0.1:8000/api/v1/setan/", {
                 method: 'POST',
                 body: JSON.stringify(json),
                 headers: {
@@ -49,12 +52,11 @@
                 }
             }).then(function(response){
                 if(response.ok){
-                    location.reload()
+                    fetchdata();
                 }
             })
             setTimeout(function(){
-            }, 2000);
-            
+            }, 1000);
         }
     });
 
@@ -71,9 +73,87 @@
     $("a[href='#top']").click(function() {
         var element = document.getElementsByClassName("head")
         $(element).removeClass("sticky");
-        $("html, body").animate({ scrollTop: 0 }, "fast");
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
+
+    function upLike(clicked_id)
+    {
+        var like = parseInt(document.getElementById(clicked_id).innerHTML)+1;
+        var url_address = 'http://127.0.0.1:8000/api/v1/setan/'+clicked_id+"/";
+        var json = {
+            like
+        }
+        console.log(JSON.stringify(json));
+        var settings = {
+            url: url_address,
+            method: 'PATCH',
+            data: json,
+        }
+        $.ajax(settings).done(function (response) {
+            setTimeout(fetchdata,1);
+        });
+    }
+
+    function fetchdata(){
+        $.ajax({
+            url: 'http://127.0.0.1:8000/api/v1/setan/?page=last',
+            type: 'GET',
+            success: function(data){
+                // Perform operation on return value
+                var content = data.results
+                
+                var toShow = "";
+                for (i = 0; i < content.length-1; i++) {
+                    var html = `
+                    <div class="body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                <div class="likes">
+                                    <button type="button" class="btn btn-light"><span id="${content[i].id}" class="number" onClick="upLike(this.id)">${content[i].like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
+                                </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <p class="content">${content[i].content}</p>
+                                    <div class="col-sm-6 nopadding"><div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div></div>
+                                    <div class="col-sm-6"><div class="name"><div class="reply glyphicon glyphicon-share-alt"></div><a>${(content[i].comments).length}</a></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    var html2= `
+                    <div class="body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                <div class="likes">
+                                    <button type="button" class="btn btn-light"><span id="${content[i].id}" class="number" onClick="upLike(this.id)">${content[i].like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
+                                </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <p class="content">${content[i].content}</p>
+                                    <div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    if((content[i].comments).length > 0) {
+                        toShow += html;
+                    } else {
+                        toShow += html2;
+                    }
+                }
+                document.getElementById("feeds").innerHTML = toShow
+            },
+            complete:function(data){
+                setTimeout(fetchdata,5000);
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        setTimeout(fetchdata,1);
+    });
+    
     </script>
     
 
