@@ -1,6 +1,20 @@
+@font-face {
+    font-family: nunito-regular;
+    src: url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+    font-family: nunito-semibold;
+    src: url(../fonts/Nunito-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: nunito-bold;
+    src: url(../fonts/Nunito-Bold.ttf);
+}
+
 html, body {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-family: 'nunito-bold', sans-serif;
     overflow-x: hidden;
     padding-top: 75px; 
 }
@@ -22,14 +36,19 @@ h1, h2, h3, h4, h5 {
 
 .number{
     text-align: center;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-family: 'nunito-bold', sans-serif;
+    font-size: 130%;
     color: black;
+}
+
+.glyphicon-heart{
+    font-size: 130%;
 }
 
 .btn{
     font-size: 150%;
     background-color: #F4F4F4;
+    border-radius: 12px;
 }
 
 .red{
@@ -51,7 +70,7 @@ h1, h2, h3, h4, h5 {
 
 .name p,
 .name a{
-    font-family: 'Nunito', sans-serif;
+    font-family: 'nunito-bold', sans-serif;
     font-size: 25px; 
     color: grey;
 }
@@ -100,7 +119,7 @@ h1, h2, h3, h4, h5 {
 .content{
     padding-right: 5%;
     font-size: 38px; 
-    letter-spacing: 0.001px;
+    letter-spacing: -2px;
     line-height: 1.4em;
     color: black
 }
