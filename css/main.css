@@ -9,12 +9,6 @@ h1, h2, h3, h4, h5 {
     font-size: 4em;
 }
 
-p {
-    font-size: 38px; 
-    letter-spacing: 0.001px;
-    line-height: 1.4em;
-}
-
 .container-full {
     margin: 0 auto;
     width: 100%;
@@ -58,13 +52,15 @@ p {
 .name p,
 .name a{
     font-family: 'Nunito', sans-serif;
-    font-size: 27px; 
+    font-size: 25px; 
     color: grey;
 }
 
 .reply {
-    font-size: 22px; 
+    padding-top: 4px;
+    font-size: 25px; 
     color: grey;
+    float: left;
 }
 
 .head{
@@ -77,6 +73,10 @@ p {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out ;
+}
+
+.thread{
+    background-color: #00C03D;
 }
 
 .head.sticky {
@@ -99,6 +99,25 @@ p {
 
 .content{
     padding-right: 5%;
+    font-size: 38px; 
+    letter-spacing: 0.001px;
+    line-height: 1.4em;
+    color: black
+}
+
+.comments{
+    padding-right: 5%;
+    font-size: 32px; 
+    letter-spacing: 0.001px;
+    line-height: 1.4em;
+    color: rgb(36, 36, 36);
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
 }
 
 .lightbox {
