@@ -104,14 +104,12 @@ function fetchdata(){
                     </div>
                   </div>
                   <a href="thread.html?id=${content[i].id}" style="color:black">
-                    <div class="col-xs-8">
+                    <div class="col-xs-10">
                       <p class="content">${content[i].content}</p>
-                      <div class="col-xs-7 nopadding"><div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div></div>
-                      <div class="col-xs-5"><div class="name"><div class="reply glyphicon glyphicon-share-alt"></div><p>${(content[i].comments).length}</p></div></div>
+                      <div class="col-xs-6 nopadding"><div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div></div>
+                      <div class="col-xs-6"><div class="name"><div class="reply glyphicon glyphicon-share-alt"></div><p>${(content[i].comments).length}</p></div></div>
                     </div>
                   </a>
-                  <div class="col-xs-1">
-                  </div>
                 </div>
               </div>
               `;
@@ -124,13 +122,11 @@ function fetchdata(){
                     </div>
                   </div>
                   <a href="thread.html?id=${content[i].id}" style="color:black">
-                    <div class="col-xs-8" id="content-wrapper">
+                    <div class="col-xs-10" id="content-wrapper">
                       <p class="content">${content[i].content}</p>
                       <div class="name"><p>${content[i].name}, ${timeSince(new Date(content[i].time))} ago</p></div>
                     </div>
                   </a>
-                  <div class="col-xs-2">
-                  </div>
                 </div>
               </div>
               `;

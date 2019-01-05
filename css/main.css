@@ -37,12 +37,11 @@ h1, h2, h3, h4, h5 {
 .number{
     text-align: center;
     font-family: 'nunito-bold', sans-serif;
-    font-size: 130%;
     color: black;
 }
 
 .glyphicon-heart{
-    font-size: 130%;
+    font-size: 30px;
 }
 
 .btn{
