@@ -29,6 +29,24 @@ function timeSince(date) {
     return Math.floor(seconds) + "s";
   }
 
+function upLike(clicked_id)
+  {
+    var like = parseInt(document.getElementById(clicked_id).getElementsByTagName("span")[0].innerHTML)+1;
+    var url_address = 'https://kuntilanak.herokuapp.com/api/v1/setan/'+clicked_id+"/";
+    var json = {
+        like
+    }
+    console.log(JSON.stringify(json));
+    var settings = {
+        url: url_address,
+        method: 'PATCH',
+        data: json,
+    }
+    $.ajax(settings).done(function (response) {
+        setTimeout(fetchdata,1);
+    });
+  }
+
 $("#textarea").keypress(function (e) {
     if(e.which == 13 && !e.shiftKey) {        
         const content = document.getElementById("textarea").value
@@ -76,14 +94,14 @@ function fetchdata(){
             var html = `
                 <div class="body">
                   <div class="row">
-                    <div class="col-sm-2">
-                      <div class="likes">
+                    <div class="col-xs-2">
+                      <div class="likes" id="${content.id}" onClick="upLike(this.id)">
                         <button type="button" class="btn btn-light"><span id="${content.id}" class="number" onClick="upLike(this.id)">${content.like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
                       </div>
                     </div>
-                    <div class="col-sm-10">
+                    <div class="col-xs-10">
                         <p class="content">${content.content}</p>
-                        <div class="col-sm-5 nopadding"><div class="name"><p>${content.name}, ${timeSince(new Date(content.time))} ago</p></div></div>
+                        <div class="col-xs-5 nopadding"><div class="name"><p>${content.name}, ${timeSince(new Date(content.time))} ago</p></div></div>
                     </div>
                   </div>
                 </div>
@@ -94,11 +112,11 @@ function fetchdata(){
                 var html_comments = `
                     <div class="body">
                     <div class="row">
-                        <div class="col-sm-2">
+                        <div class="col-xs-2">
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-xs-10">
                             <p class="comments">${(content.comments)[i].content}</p>
-                            <div class="col-sm-5 nopadding"><div class="name"><p>${timeSince(new Date((content.comments)[i].time))}</p></div></div>
+                            <div class="col-xs-5 nopadding"><div class="name"><p>${timeSince(new Date((content.comments)[i].time))}</p></div></div>
                         </div>
                     </div>
                     </div>
