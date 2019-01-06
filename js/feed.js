@@ -69,7 +69,7 @@ $("a[href='#top']").click(function() {
 
 function upLike(clicked_id)
 {
-  var like = parseInt(document.getElementById(clicked_id).getElementsByTagName("span")[0].innerHTML)+1;
+  var like = parseInt(document.getElementById(clicked_id).getElementsByTagName("p")[0].innerHTML)+1;
   var url_address = 'https://kuntilanak.herokuapp.com/api/v1/setan/'+clicked_id+"/";
   var json = {
       like
@@ -99,7 +99,12 @@ function fetchdata(){
                 <div class="row">
                   <div class="col-xs-2">
                     <div class="likes" id="${content[i].id}" onClick="upLike(this.id)">
-                      <button type="button" class="btn btn-light"><span id="${content[i].id} class="number">${content[i].like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
+                      <button type="button" class="btn btn-light">
+                        <div class="number-container">
+                          <p id="${content[i].id} class="number">${content[i].like}</p>
+                        </div>
+                        <div class="glyphicon glyphicon-heart"></div>
+                      </button>
                     </div>
                   </div>
                   <a href="thread.html?id=${content[i].id}" style="color:black">
@@ -117,7 +122,13 @@ function fetchdata(){
                 <div class="row">
                   <div class="col-xs-2">
                     <div class="likes" id="${content[i].id}" onClick="upLike(this.id)">
-                      <button type="button" class="btn btn-light"><span id="${content[i].id} class="number">${content[i].like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
+                      <button type="button" class="btn btn-light">
+                        <div class="number-container">
+                          <p id="${content[i].id} class="number">${content[i].like}</p>
+                        </div>
+                        <div class="glyphicon glyphicon-heart">
+                        </div>
+                      </button>
                     </div>
                   </div>
                   <a href="thread.html?id=${content[i].id}" style="color:black">

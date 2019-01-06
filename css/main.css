@@ -34,10 +34,11 @@ h1, h2, h3, h4, h5 {
     padding-top: 10px;
 }
 
-.number{
+.number-container{
     text-align: center;
     font-family: 'nunito-bold', sans-serif;
     color: black;
+    font-size: 30px;
 }
 
 .glyphicon-heart{
@@ -50,8 +51,16 @@ h1, h2, h3, h4, h5 {
     border-radius: 12px;
 }
 
-.red{
-    color: red
+.likes:active .btn{
+    background:red;
+}
+
+.likes:active .btn .number-container{
+    color: white;
+}
+
+.likes:active .btn .glyphicon-heart{
+    color: white;
 }
 
 .head a{
@@ -70,13 +79,13 @@ h1, h2, h3, h4, h5 {
 .name p,
 .name a{
     font-family: 'nunito-bold', sans-serif;
-    font-size: 25px; 
+    font-size: 30px; 
     color: grey;
 }
 
 .reply {
     padding-top: 4px;
-    font-size: 25px; 
+    font-size: 30px; 
     color: grey;
     float: left;
 }
@@ -117,7 +126,7 @@ h1, h2, h3, h4, h5 {
 
 .content{
     padding-right: 5%;
-    font-size: 38px; 
+    font-size: 45px; 
     letter-spacing: -2px;
     line-height: 1.4em;
     color: black
@@ -125,7 +134,7 @@ h1, h2, h3, h4, h5 {
 
 .comments{
     padding-right: 5%;
-    font-size: 32px; 
+    font-size: 35px; 
     letter-spacing: 0.001px;
     line-height: 1.4em;
     color: rgb(36, 36, 36);

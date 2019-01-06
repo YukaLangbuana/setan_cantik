@@ -31,12 +31,11 @@ function timeSince(date) {
 
 function upLike(clicked_id)
   {
-    var like = parseInt(document.getElementById(clicked_id).getElementsByTagName("span")[0].innerHTML)+1;
+    var like = parseInt(document.getElementById(clicked_id).getElementsByTagName("p")[0].innerHTML)+1;
     var url_address = 'https://kuntilanak.herokuapp.com/api/v1/setan/'+clicked_id+"/";
     var json = {
         like
     }
-    console.log(JSON.stringify(json));
     var settings = {
         url: url_address,
         method: 'PATCH',
@@ -95,9 +94,14 @@ function fetchdata(){
                 <div class="body">
                   <div class="row">
                     <div class="col-xs-2">
-                      <div class="likes" id="${content.id}" onClick="upLike(this.id)">
-                        <button type="button" class="btn btn-light"><span id="${content.id}" class="number" onClick="upLike(this.id)">${content.like}</span><br><div class="glyphicon glyphicon-heart"></div></button>
-                      </div>
+                        <div class="likes" id="${content.id}" onClick="upLike(this.id)">
+                            <button type="button" class="btn btn-light">
+                                <div class="number-container">
+                                    <p id="${content.id} class="number">${content.like}</p>
+                                </div>
+                                <div class="glyphicon glyphicon-heart"></div>
+                            </button>
+                        </div>
                     </div>
                     <div class="col-xs-10">
                         <p class="content">${content.content}</p>
@@ -121,9 +125,7 @@ function fetchdata(){
                     </div>
                     </div>
                 `;
-                console.log(html_comments)
                 toShow += html_comments;
-                console.log(toShow)
             }
             document.getElementById("feeds").innerHTML = html;
             document.getElementById("comments").innerHTML = toShow;
