@@ -92,9 +92,8 @@ function fetchdata(){
       success: function(data){
           // Perform operation on return value
           var content = data.results
-          
           var toShow = "";
-          for (i = 0; i < content.length-1; i++) {
+          for (i = 0; i < content.length; i++) {
               var html = `
               <div class="body">
                 <div class="row">
